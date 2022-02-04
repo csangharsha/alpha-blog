@@ -1,0 +1,16 @@
+<% if obj.errors.any? %>
+  <div align="center">
+    <div class="card text-white bg-danger mb-3 w-50">
+      <div class="card-body">
+        <h5 class="card-title">The following errors is prevented article to be created.</h5>
+        <p class="card-text">
+          <ul align="left">
+            <% obj.errors.full_messages.each do |msg| %>
+              <li><%=msg%></li>
+            <% end %>
+          </ul>
+        </p>
+      </div>
+    </div>
+  </div>
+<% end %>

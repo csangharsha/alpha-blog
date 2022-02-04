@@ -1,47 +1,28 @@
+<%= render "shared/error", obj: @article %>
 
+<div class="col-sm-12">
 
-<% if @article.errors.any? %>
-  <div align="center">
-    <div class="card text-white bg-danger mb-3 w-50">
-      <div class="card-body">
-        <h5 class="card-title">The following errors is prevented article to be created.</h5>
-        <p class="card-text">
-          <ul align="left">
-            <% @article.errors.full_messages.each do |msg| %>
-              <li><%=msg%></li>
-            <% end %>
-          </ul>
-        </p>
+  <%=form_for @article, data: {turbo: false} do |f|%>
+
+    <div class="row mb-3 offset-sm-3">
+      <%=f.label :title, class: "col-sm-2 col-form-label" %>
+      <div class="col-sm-6">
+        <%=f.text_field :title, class: "form-control", placeholder: "Title of Article" %>
       </div>
     </div>
-  </div>
-<% end %>
 
-
-  <div class="col-sm-12">
-
-    <%=form_for @article, data: {turbo: false} do |f|%>
-
-      <div class="row mb-3 offset-sm-3">
-        <%=f.label :title, class: "col-sm-2 col-form-label" %>
-        <div class="col-sm-6">
-          <%=f.text_field :title, class: "form-control", placeholder: "Title of Article" %>
-        </div>
+    <div class="row mb-3 offset-sm-3">
+      <%=f.label :description, class: "col-sm-2 col-form-label" %>
+      <div class="col-sm-6">
+        <%=f.text_area :description, class: "form-control", rows: 8 %>
       </div>
+    </div>
 
-      <div class="row mb-3 offset-sm-3">
-        <%=f.label :description, class: "col-sm-2 col-form-label" %>
-        <div class="col-sm-6">
-          <%=f.text_area :description, class: "form-control", rows: 8 %>
-        </div>
-      </div>
+    <div class="col-sm-6 offset-sm-3">
+      <%= link_to 'Back to article listing', articles_path, class: 'btn btn-outline-secondary' %>
+      <%=f.submit class: "btn btn-primary float-end" %>
+    </div>
 
-      <div class="col-sm-6 offset-sm-3">
-        <%= link_to 'Back to article listing', articles_path, class: 'btn btn-outline-secondary' %>
-        <%=f.submit class: "btn btn-primary float-end" %>
-      </div>
+  <% end %>
 
-    <% end %>
-
-  </div>
-
+</div>
