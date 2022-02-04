@@ -1,0 +1,35 @@
+<%= render 'shared/error', obj: @user%>
+
+<div class="col-sm-12">
+
+  <%=form_for @user, data: {turbo: false} do |f|%>
+
+    <div class="row mb-3 offset-sm-3">
+      <%=f.label :username, class: "col-sm-2 col-form-label" %>
+      <div class="col-sm-6">
+        <%=f.text_field :username, class: "form-control", placeholder: "Enter username" %>
+      </div>
+    </div>
+
+    <div class="row mb-3 offset-sm-3">
+      <%=f.label :email, class: "col-sm-2 col-form-label" %>
+      <div class="col-sm-6">
+        <%=f.email_field :email, class: "form-control", placeholder: "Enter email" %>
+      </div>
+    </div>
+
+    <div class="row mb-3 offset-sm-3">
+      <%=f.label :password, class: "col-sm-2 col-form-label" %>
+      <div class="col-sm-6">
+        <%=f.password_field :password, class: "form-control", placeholder: "Enter password" %>
+      </div>
+    </div>
+
+    <div class="col-sm-6 offset-sm-3">
+      <%= link_to 'Back to article listing', articles_path, class: 'btn btn-outline-secondary' %>
+      <%=f.submit(@user.new_record? ? "Sign up" : "Update your Account", class: "btn btn-primary float-end") %>
+    </div>
+
+  <% end %>
+
+</div>
