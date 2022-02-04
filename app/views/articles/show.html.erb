@@ -18,10 +18,12 @@ Title: <%=@article.title%>
 	</div>
 	<div class="card-footer">
 		<div class="article-actions">
-			<%= link_to 'Edit this Article', edit_article_path(@article), class: 'btn btn-sm btn-primary' %>
-			<%= link_to 'Delete this Article', article_path(@article),
-												data: {"turbo-method": :delete},
-												class: 'btn btn-sm btn-danger' %>
+			<% if logged_in? && current_user == @article.user %>
+				<%= link_to 'Edit this Article', edit_article_path(@article), class: 'btn btn-sm btn-primary' %>
+				<%= link_to 'Delete this Article', article_path(@article),
+													data: {"turbo-method": :delete},
+													class: 'btn btn-sm btn-danger' %>
+			<% end %>
 			<%= link_to 'View All Articles', articles_path, class: 'btn btn-sm btn-success' %>
 		</div>
 	</div>

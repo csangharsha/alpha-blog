@@ -1,0 +1,24 @@
+<h1 align="center">Log in</h1>
+
+<%=form_for(:session , data: {turbo: false}, url: login_path) do |f|%>
+
+  <div class="row mb-3 offset-sm-2">
+    <%=f.label :email, class: "col-sm-2 col-form-label" %>
+    <div class="col-sm-8">
+      <%=f.email_field :email, class: "form-control", autofocus: true%>
+    </div>
+  </div>
+
+  <div class="row mb-3 offset-sm-2">
+    <%=f.label :password, class: "col-sm-2 col-form-label" %>
+    <div class="col-sm-8">
+      <%=f.password_field :password, class: "form-control", autocomplete: "off" %>
+    </div>
+  </div>
+
+  <div class="col-sm-8 offset-sm-2">
+    <%= link_to 'Back to article listing', articles_path, class: 'btn btn-outline-secondary' %>
+    <%=f.submit "Log in", class: "btn btn-primary float-end" %>
+  </div>
+
+<% end %>
