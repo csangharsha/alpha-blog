@@ -4,7 +4,13 @@ Title: <%=@article.title%>
 </h2>
 
 <div class="card col-xs-8 offset-xs-2">
-	<div class="card-header">
+	<div class="card-header" align="center">
+		<ul class="listing">
+			<li>Created by:</li>
+			<li><%=link_to gravatar_for(@article.user), user_path(@article.user) %></li>
+			<li><%=link_to @article.user.username, user_path(@article.user) %></li>
+			<li><small><%= pluralize(@article.user.articles.count, "article") if @article.user.articles %></small></li>
+		</ul>
 		<h4 class="center"><strong>Description</strong></h4>
 	</div>
 	<div class="card-body">
@@ -13,8 +19,8 @@ Title: <%=@article.title%>
 	<div class="card-footer">
 		<div class="article-actions">
 			<%= link_to 'Edit this Article', edit_article_path(@article), class: 'btn btn-sm btn-primary' %>
-			<%= link_to 'Delete this Article', article_path(@article), 
-												data: {"turbo-method": :delete}, 
+			<%= link_to 'Delete this Article', article_path(@article),
+												data: {"turbo-method": :delete},
 												class: 'btn btn-sm btn-danger' %>
 			<%= link_to 'View All Articles', articles_path, class: 'btn btn-sm btn-success' %>
 		</div>
