@@ -44,8 +44,12 @@ gem "bootsnap", require: false
 
 # Use Sass to process CSS
 gem "cssbundling-rails"
+gem 'jsbundling-rails'
 # gem "sassc-rails"
 
+gem 'will_paginate', '~> 3.3'
+
+gem 'will_paginate-bootstrap-style'
 gem 'bcrypt', '~> 3.1.7'
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
