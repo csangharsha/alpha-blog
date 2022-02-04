@@ -1,0 +1,22 @@
+
+<% obj.each do |article| %>
+  <div class="card col-sm-8 offset-sm-2 mb-4">
+    <div class="card-header">
+      <strong><%= link_to article.title, article_path(article) %></strong>
+    </div>
+    <div class="card-body">
+      <%= truncate(article.description, length: 100) %>
+      <div style="border-top: 1px solid #ccc; margin-top: 15px;">
+        <small> Created By: <%=article.user.username if article.user %> <%= time_ago_in_words(article.created_at)%></small>
+      </div>
+    </div>
+    <div class="card-footer">
+      <div class="article-actions">
+        <%= link_to 'Edit this Article', edit_article_path(article), class: 'btn btn-sm btn-primary' %>
+        <%= link_to 'Delete this Article', article_path(article),
+                          data: {"turbo-method": :delete},
+                          class: 'btn btn-sm btn-danger' %>
+      </div>
+    </div>
+  </div>
+<% end %>
