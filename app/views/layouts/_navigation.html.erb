@@ -24,12 +24,11 @@
           <% if logged_in? %>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Your Profile
+              Your Profile <%= "(Admin)" if current_user.admin? %>
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
               <li><%= link_to "Edit your Profile", edit_user_path(current_user) ,class: "dropdown-item" %></li>
               <li><%= link_to "View your Profile", user_path(current_user) ,class: "dropdown-item" %></li>
-              <li><a class="dropdown-item" href="#">Something else here</a></li>
             </ul>
           </li>
             <li class="nav-item">
