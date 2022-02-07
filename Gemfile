@@ -41,7 +41,7 @@ gem "bootsnap", require: false
 
 # Use Sass to process CSS
 gem "cssbundling-rails"
-gem 'jsbundling-rails'
+
 # gem "sassc-rails"
 
 gem 'will_paginate', '~> 3.3'
