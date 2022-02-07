@@ -1,0 +1,21 @@
+<h1 align="center"  class="mb-4">All Alpha Category</h1>
+
+<div class="d-flex justify-content-center">
+  <%= will_paginate @categories %>
+</div>
+<div align="center">
+  <% @categories.each do |category| %>
+    <ul class="listing">
+      <div class="row">
+        <div class="card text-dark bg-light mb-3 col-md-4 offset-md-4" style="max-width: 25rem; padding-left: 0; padding-right: 0;">
+          <div class="card-body">
+            <li><strong><%= link_to category.name, category_path(category) %></strong></li>
+          </div>
+        </div>
+    </ul>
+  <% end %>
+</div>
+
+<div class="d-flex justify-content-center">
+  <%= will_paginate @categories %>
+</div>
