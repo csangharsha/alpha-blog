@@ -6,11 +6,13 @@
     </div>
     <div class="card-body">
       <%= truncate(article.description, length: 100) %>
-      <div style="border-top: 1px solid #ccc; margin-top: 15px;">
+      <div style="border-top: 1px solid #ccc; margin-top: 15px;margin-bottom: 10px;">
         <small> Created By: <%=article.user.username if article.user %> <%= time_ago_in_words(article.created_at)%></small>
       </div>
+        <% if article.categories.any? %>
+          <p style="margin-bottom: 0;">Categories: <%= render article.categories%></p>
+        <% end %>
     </div>
-
     <% if logged_in? && (current_user == article.user || current_user.admin?) %>
       <div class="card-footer">
         <div class="article-actions">

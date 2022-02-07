@@ -15,6 +15,9 @@ Title: <%=@article.title%>
 	</div>
 	<div class="card-body">
 		<%= simple_format(@article.description) %>
+		<% if @article.categories.any? %>
+			<p>Categories: <%= render @article.categories %></p>
+		<% end %>
 	</div>
 	<div class="card-footer">
 		<div class="article-actions">

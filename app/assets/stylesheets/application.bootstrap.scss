@@ -34,3 +34,19 @@ footer ul li {
 .right-nav li.nav-item {
   margin-left: 10px;
 }
+
+.badge {
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  font-weight: bold;
+}
+
+.badge a {
+  text-decoration: none;
+  color: white;
+}
+
+.badge a:hover {
+  text-decoration: underline;
+  color: #ccc;
+}

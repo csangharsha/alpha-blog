@@ -10,6 +10,7 @@
         <div class="card text-dark bg-light mb-3 col-md-4 offset-md-4" style="max-width: 25rem; padding-left: 0; padding-right: 0;">
           <div class="card-body">
             <li><strong><%= link_to category.name, category_path(category) %></strong></li>
+            <li><small><%=pluralize(category.articles.count, 'article')%></small></li>
           </div>
         </div>
     </ul>
