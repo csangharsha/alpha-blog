@@ -1,8 +1,10 @@
 <h2 align="center">Category: <%= @category.name%></h2>
-<div class="d-flex justify-content-center">
+<div class="d-flex justify-content-center mb-2">
+	<% if logged_in? && current_user.admin? %>
+  		<div class="badge bg-primary mb-4"><%= link_to "Edit this category name", edit_category_path(@category) %></div>
+  	<% end %>
   <%= will_paginate @category_articles %>
 </div>
-
 <%= render 'articles/article', obj: @category_articles %>
 <div class="d-flex justify-content-center">
   <%= will_paginate @category_articles %>

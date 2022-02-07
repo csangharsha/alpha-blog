@@ -12,6 +12,11 @@
             <li><strong><%= link_to category.name, category_path(category) %></strong></li>
             <li><small><%=pluralize(category.articles.count, 'article')%></small></li>
           </div>
+          <% if logged_in? && current_user.admin? %>
+          <div class="card-footer">
+            <%= link_to 'Edit this Category', edit_category_path(category)%>
+          </div>
+          <% end %>
         </div>
     </ul>
   <% end %>

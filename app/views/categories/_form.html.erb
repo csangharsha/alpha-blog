@@ -1,0 +1,21 @@
+<%= render 'shared/error', obj: @category%>
+
+<div class="col-sm-12">
+
+  <%=form_for @category, data: {turbo: false} do |f|%>
+
+    <div class="row mb-3 offset-sm-3">
+      <%=f.label :name, class: "col-sm-2 col-form-label" %>
+      <div class="col-sm-6">
+        <%=f.text_field :name, class: "form-control", placeholder: "Enter category" %>
+      </div>
+    </div>
+
+    <div class="col-sm-6 offset-sm-3">
+      <%= link_to 'Back to article listing', articles_path, class: 'btn btn-outline-secondary' %>
+      <%=f.submit "Update", class: "btn btn-primary float-end" %>
+    </div>
+
+  <% end %>
+
+</div>
