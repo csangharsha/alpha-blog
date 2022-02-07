@@ -1,7 +1,7 @@
 <h2 align="center">Category: <%= @category.name%></h2>
 <div class="d-flex justify-content-center mb-2">
 	<% if logged_in? && current_user.admin? %>
-  		<div class="badge bg-primary mb-4"><%= link_to "Edit this category name", edit_category_path(@category) %></div>
+  		<span class="badge bg-primary mb-4"><%= link_to "Edit this category name", edit_category_path(@category) %></span><br/>
   	<% end %>
   <%= will_paginate @category_articles %>
 </div>
